@@ -9,9 +9,15 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 
+type ProjectInfo = {
+  name: string,
+  description: string,
+  details: string,
+}
+
 export function ImprovedProfileWebsite() {
   const [activeSection, setActiveSection] = useState('home')
-  const [selectedProject, setSelectedProject] = useState(null)
+  const [selectedProject, setSelectedProject] = useState<ProjectInfo | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,7 +44,7 @@ export function ImprovedProfileWebsite() {
     visible: { opacity: 1, y: 0 }
   }
 
-  const projects = [
+  const projects: ProjectInfo[] = [
     {
       name: "ChomCHOB Tunnel",
       description: "Developed ChomCHOB's first smart contract product, revolutionizing blockchain interactions.",
@@ -139,7 +145,7 @@ export function ImprovedProfileWebsite() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <p className="mb-6 text-lg">
-                  As a technology leader and innovator, I am dedicated to driving innovation that positively impacts people and the world. With expertise in blockchain, AI, and software engineering, I strive to create solutions that push the boundaries of what's possible.
+                  As a technology leader and innovator, I am dedicated to driving innovation that positively impacts people and the world. With expertise in blockchain, AI, and software engineering, I strive to create solutions that push the boundaries of whats possible.
                 </p>
                 <h3 className="text-2xl font-semibold mb-4 text-[#9F8466]">Core Expertise:</h3>
                 <ul className="list-disc list-inside mb-6 space-y-2">
