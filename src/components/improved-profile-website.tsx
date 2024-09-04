@@ -1,23 +1,43 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import Image from 'next/image'
+import { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import { Facebook, Github, Linkedin, Mail, Phone, Briefcase, GraduationCap, Code, Users, Lightbulb, MessageSquare, Puzzle, Cloud, LayoutGrid, X } from 'lucide-react'
+import { Facebook, Github, Linkedin, Mail, Phone, Briefcase, GraduationCap, Code, Users, Lightbulb, MessageSquare, Puzzle, Cloud, LayoutGrid, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import Link from 'next/link'
+import useEmblaCarousel from 'embla-carousel-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from "@/components/ui/dialog"
 
-type ProjectInfo = {
-  name: string,
-  description: string,
-  details: string,
-}
+type Project = {
+  name: string;
+  description: string;
+  details: string;
+};
 
-export function ImprovedProfileWebsite() {
+export default function ImprovedProfileWebsite() {
   const [activeSection, setActiveSection] = useState('home')
-  const [selectedProject, setSelectedProject] = useState<ProjectInfo | null>(null)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: 'start' })
+  const [canScrollPrev, setCanScrollPrev] = useState(false)
+  const [canScrollNext, setCanScrollNext] = useState(true)
+
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi])
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi])
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return
+    setCanScrollPrev(emblaApi.canScrollPrev())
+    setCanScrollNext(emblaApi.canScrollNext())
+  }, [emblaApi])
+
+  useEffect(() => {
+    if (!emblaApi) return
+    onSelect()
+    emblaApi.on('select', onSelect)
+  }, [emblaApi, onSelect])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +64,7 @@ export function ImprovedProfileWebsite() {
     visible: { opacity: 1, y: 0 }
   }
 
-  const projects: ProjectInfo[] = [
+  const projects: Project[] = [
     {
       name: "ChomCHOB Tunnel",
       description: "Developed ChomCHOB's first smart contract product, revolutionizing blockchain interactions.",
@@ -59,6 +79,16 @@ export function ImprovedProfileWebsite() {
       name: "ChomCHOB Platforms",
       description: "Led the development of multiple platforms, integrating cutting-edge technologies for optimal performance.",
       details: "ChomCHOB Platforms is a suite of interconnected applications designed to provide a seamless experience for users across various domains. The project involved developing a microservices architecture, implementing real-time data synchronization, and creating a unified authentication system. The platforms leverage technologies such as GraphQL for efficient data fetching, WebSockets for real-time updates, and containerization for easy deployment and scaling."
+    },
+    {
+      name: "AI-Powered Analytics Dashboard",
+      description: "Designed and implemented an AI-driven analytics dashboard for real-time business insights.",
+      details: "The AI-Powered Analytics Dashboard is a cutting-edge solution that leverages machine learning algorithms to provide real-time, actionable insights for businesses. It integrates data from multiple sources, uses predictive modeling to forecast trends, and presents information through an intuitive, interactive interface. This project significantly improved decision-making processes and operational efficiency for our clients."
+    },
+    {
+      name: "Blockchain-based Supply Chain Solution",
+      description: "Developed a blockchain solution to enhance transparency and traceability in supply chain management.",
+      details: "This innovative project utilizes blockchain technology to create an immutable, transparent record of supply chain transactions. It enables real-time tracking of products from manufacture to delivery, reduces fraud, and improves efficiency. The solution includes smart contracts for automated payments and a user-friendly interface for easy adoption by various stakeholders in the supply chain."
     }
   ]
 
@@ -98,6 +128,7 @@ export function ImprovedProfileWebsite() {
       </header>
 
       <main className="pt-20">
+        {/* Home section */}
         <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#2E2F3D] to-[#4E4F5D]">
           <div className="container mx-auto px-4 text-center">
             <motion.h1
@@ -139,6 +170,7 @@ export function ImprovedProfileWebsite() {
           </div>
         </section>
 
+        {/* About section */}
         <section id="about" className="py-20 bg-[#3E3F4D]">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold mb-12 text-center text-[#9F8466]">About Me</h2>
@@ -160,8 +192,10 @@ export function ImprovedProfileWebsite() {
                 </Button>
               </div>
               <div className="relative">
-                <img
+                <Image
                   src="/placeholder.svg?height=400&width=400&text=Profile+Image"
+                  width={400}
+                  height={400}
                   alt="Natthapach Anuwattananon"
                   className="rounded-lg shadow-xl"
                 />
@@ -174,6 +208,7 @@ export function ImprovedProfileWebsite() {
           </div>
         </section>
 
+        {/* Experience section */}
         <section id="experience" className="py-20 bg-[#2E2F3D]">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold mb-12 text-center text-[#9F8466]">Work Experience</h2>
@@ -194,59 +229,84 @@ export function ImprovedProfileWebsite() {
                   variants={fadeInUp}
                   transition={{ delay: index * 0.1 }}
                 >
+                  {index % 2 === 1 && <div className="w-2 h-2 bg-[#9F8466] rounded-full z-10"></div>}
                   <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
                     <h3 className="text-xl font-semibold text-[#9F8466]">{job.role}</h3>
                     <p className="text-gray-300">{job.company}</p>
                     <p className="text-sm text-gray-400">{job.year}</p>
                   </div>
-                  <div className="w-2 h-2 bg-[#9F8466] rounded-full z-10"></div>
+                  {index % 2 === 0 && <div className="w-2 h-2 bg-[#9F8466] rounded-full z-10"></div>}
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
+        {/* Projects section with carousel */}
         <section id="projects" className="py-20 bg-[#3E3F4D]">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold mb-12 text-center text-[#9F8466]">Highlighted Projects</h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              {projects.map((project, index) => (
-                <motion.div
-                  key={index}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  variants={fadeInUp}
-                  transition={{ delay: index * 0.1 }}
-                >
-                  <Card className="bg-[#2E2F3D] border-[#9F8466]/30 h-full flex flex-col">
-                    <CardHeader className="bg-[#9F8466] text-white">
-                      <CardTitle className="truncate" title={project.name}>{project.name}</CardTitle>
-                    </CardHeader>
-                    <CardContent className="pt-6 flex-grow overflow-hidden">
-                      <img
-                        src={`/placeholder.svg?height=200&width=400&text=${project.name}`}
-                        alt={project.name}
-                        className="w-full h-48 object-cover mb-4 rounded-md"
-                      />
-                      <p className="line-clamp-3">{project.description}</p>
-                    </CardContent>
-                    <CardFooter>
-                      <Button 
-                        variant="outline" 
-                        className="w-full border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white"
-                        onClick={() => setSelectedProject(project)}
-                      >
-                        Read More
-                      </Button>
-                    </CardFooter>
-                  </Card>
-                </motion.div>
-              ))}
+            <div className="relative">
+              <div className="overflow-hidden" ref={emblaRef}>
+                <div className="flex">
+                  {projects.map((project, index) => (
+                    <div key={index} className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] px-4">
+                      <Card className="bg-[#2E2F3D] border-[#9F8466]/30 h-full flex flex-col">
+                        <CardHeader className="bg-[#9F8466] text-white">
+                          <CardTitle className="truncate" title={project.name}>{project.name}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="pt-6 flex-grow overflow-hidden">
+                          <Image
+                            src={`/placeholder.svg?height=200&width=400&text=${project.name}`}
+                            width={400}
+                            height={200}
+                            alt={project.name}
+                            className="w-full h-48 object-cover mb-4 rounded-md"
+                          />
+                          <p className="line-clamp-3">{project.description}</p>
+                        </CardContent>
+                        <CardFooter>
+                          <Button 
+                            variant="outline" 
+                            className="w-full border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466]
+                            hover:text-white"
+                            onClick={() => setSelectedProject(project)}
+                          >
+                            Read More
+                          </Button>
+                        </CardFooter>
+                      </Card>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <Button
+                variant="outline"
+                size="icon"
+                className={`absolute top-1/2 left-4 transform -translate-y-1/2 bg-[#2E2F3D]/50 border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white ${
+                  !canScrollPrev ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
+                onClick={scrollPrev}
+                disabled={!canScrollPrev}
+              >
+                <ChevronLeft className="h-4 w-4" />
+              </Button>
+              <Button
+                variant="outline"
+                size="icon"
+                className={`absolute top-1/2 right-4 transform -translate-y-1/2 bg-[#2E2F3D]/50 border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white ${
+                  !canScrollNext ? 'opacity-50 cursor-not-allowed' : ''
+                }`}
+                onClick={scrollNext}
+                disabled={!canScrollNext}
+              >
+                <ChevronRight className="h-4 w-4" />
+              </Button>
             </div>
           </div>
         </section>
 
+        {/* Research section */}
         <section id="research" className="py-20 bg-[#2E2F3D]">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold mb-12 text-center text-[#9F8466]">Research and Publications</h2>
@@ -286,6 +346,7 @@ export function ImprovedProfileWebsite() {
           </div>
         </section>
 
+        {/* Skills section */}
         <section id="skills" className="py-20 bg-[#3E3F4D]">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold mb-12 text-center text-[#9F8466]">Technical and Soft Skills</h2>
@@ -344,6 +405,7 @@ export function ImprovedProfileWebsite() {
           </div>
         </section>
 
+        {/* Education section */}
         <section id="education" className="py-20 bg-[#2E2F3D]">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold mb-12 text-center text-[#9F8466]">Education and Certifications</h2>
@@ -388,6 +450,7 @@ export function ImprovedProfileWebsite() {
           </div>
         </section>
 
+        {/* Contact section */}
         <section id="contact" className="py-20 bg-gradient-to-br from-[#2E2F3D] to-[#4E4F5D]">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold mb-12 text-center text-[#9F8466]">Get in Touch</h2>
@@ -444,14 +507,15 @@ export function ImprovedProfileWebsite() {
         <DialogContent className="bg-[#2E2F3D] text-white border-[#9F8466]">
           <DialogHeader>
             <DialogTitle className="text-[#9F8466]">{selectedProject?.name}</DialogTitle>
-            <Button
-              variant="ghost"
-              className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
-              onClick={() => setSelectedProject(null)}
-            >
-              <X className="h-4 w-4" />
-              <span className="sr-only">Close</span>
-            </Button>
+            <DialogClose asChild>
+              <Button
+                variant="ghost"
+                className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
+              >
+                <X className="h-4 w-4" />
+                <span className="sr-only">Close</span>
+              </Button>
+            </DialogClose>
           </DialogHeader>
           <DialogDescription className="text-gray-300">
             {selectedProject?.details}
