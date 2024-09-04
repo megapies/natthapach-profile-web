@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import { Facebook, Github, Linkedin, Mail, Phone, Briefcase, GraduationCap, Code, Users, Lightbulb, MessageSquare, Puzzle, Cloud, LayoutGrid, X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Facebook, Github, Linkedin, Mail, Phone, Briefcase, GraduationCap, Code, Users, Lightbulb, MessageSquare, Puzzle, Cloud, LayoutGrid, X, ChevronLeft, ChevronRight, Cuboid, Brain, CircuitBoard, Eye } from 'lucide-react'
 import Link from 'next/link'
 import useEmblaCarousel from 'embla-carousel-react'
 import { Button } from "@/components/ui/button"
@@ -13,9 +13,19 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 
 type Project = {
   name: string;
+  year: string,
   description: string;
   details: string;
+  company: string,
+  image: string,
 };
+type Experience = {
+  title: string,
+  since: string,
+  to: string,
+  company: string,
+  responsibilities: string[],
+}
 
 export default function ImprovedProfileWebsite() {
   const [activeSection, setActiveSection] = useState('home')
@@ -66,30 +76,132 @@ export default function ImprovedProfileWebsite() {
 
   const projects: Project[] = [
     {
-      name: "ChomCHOB Tunnel",
-      description: "Developed ChomCHOB's first smart contract product, revolutionizing blockchain interactions.",
-      details: "ChomCHOB Tunnel is an innovative smart contract product that streamlines blockchain interactions. It provides a secure and efficient way for users to interact with various blockchain networks, simplifying complex processes and reducing transaction costs. The project involved developing a user-friendly interface, implementing robust security measures, and optimizing gas fees for Ethereum-based transactions."
-    },
-    {
-      name: "ChomCHOB Backend Framework",
-      description: "Architected a robust backend framework, enhancing development efficiency and scalability.",
-      details: "The ChomCHOB Backend Framework is a comprehensive solution designed to accelerate backend development and improve scalability. It incorporates best practices in software architecture, including modular design, dependency injection, and automated testing. The framework supports multiple databases, caching mechanisms, and message queues, allowing developers to build high-performance, scalable applications with ease."
-    },
-    {
       name: "ChomCHOB Platforms",
-      description: "Led the development of multiple platforms, integrating cutting-edge technologies for optimal performance.",
-      details: "ChomCHOB Platforms is a suite of interconnected applications designed to provide a seamless experience for users across various domains. The project involved developing a microservices architecture, implementing real-time data synchronization, and creating a unified authentication system. The platforms leverage technologies such as GraphQL for efficient data fetching, WebSockets for real-time updates, and containerization for easy deployment and scaling."
+      year: '2024',
+      image: '',
+      company: 'ChomCHOB',
+      description: `Direct and supervise for develop whole company's products`,
+      details: `At its core, ChomCHOB focuses on loyalty technology and FinTech products. The ChomCHOB Platforms
+initiative is a strategic expansion that builds upon these core offerings to enhance other technology sectors,
+including HRTech, MarTech, and EdTech.
+
+The concept extends beyond marketing; loyalty is essential across various segments. In HRTech,
+organizations should foster loyalty with their employees. In MarTech, businesses should cultivate loyalty with
+their customers. In EdTech, schools should build loyalty with their students and parents.
+
+As a Tech Lead, I conducted research and gathered data to design this product strategy and idea for
+discussion with executives. I also supervised the development of products in alignment with this plan.`
     },
     {
-      name: "AI-Powered Analytics Dashboard",
-      description: "Designed and implemented an AI-driven analytics dashboard for real-time business insights.",
-      details: "The AI-Powered Analytics Dashboard is a cutting-edge solution that leverages machine learning algorithms to provide real-time, actionable insights for businesses. It integrates data from multiple sources, uses predictive modeling to forecast trends, and presents information through an intuitive, interactive interface. This project significantly improved decision-making processes and operational efficiency for our clients."
+      name: "ChomCHOB Tunnel",
+      year: '2022',
+      image: '',
+      company: 'ChomCHOB',
+      description: `Blockchain product for converting between cryptocurrencies and loyalty point in real world`,
+      details: `ChomCHOB Tunnel is the first smart contract products of ChomCHOB. This product gives users to convert
+between their cryptocurrencies on blockchain and CCP (ChomCHOB point), two-way conversion. This
+product solve pain point of people who have cryptocurrencies on blockchain but hard to use in real-life and
+also make benefit to origin ChomCHOB business.
+
+In this project, I design project concepts, project management, and implement smart contracts.`
     },
     {
-      name: "Blockchain-based Supply Chain Solution",
-      description: "Developed a blockchain solution to enhance transparency and traceability in supply chain management.",
-      details: "This innovative project utilizes blockchain technology to create an immutable, transparent record of supply chain transactions. It enables real-time tracking of products from manufacture to delivery, reduces fraud, and improves efficiency. The solution includes smart contracts for automated payments and a user-friendly interface for easy adoption by various stakeholders in the supply chain."
-    }
+      name: "ChomCHOB Backend Framwork",
+      year: '2021',
+      image: '',
+      company: 'ChomCHOB',
+      description: `Building own Typescript framework for microservice`,
+      details: `Developed a custom backend framework to enhance team collaboration by establishing a unified and
+consistent development environment. This framework was built upon the team's existing structure,
+considering CI/CD constraints, and included transitioning the team’s primary programming language from
+JavaScript to TypeScript.\n\n\n\n\n\n
+
+The framework extended beyond project architecture to incorporate shared tools, such as CLI tools for
+project scaffolding, API creation, and function development, along with helper libraries to simplify common
+tasks.
+
+Additionally, the framework was designed to support more than just API development, featuring a
+microservices architecture that accommodates various processing capabilities, such as queue processing,
+job handling, pub/sub systems, and more.`
+    },
+    {
+      name: "HR Tech 2024",
+      year: '2024',
+      image: '',
+      company: 'ChomCHOB',
+      description: `Speaker in ChomCHOB's Tech Stage in HR Tech 2024 event`,
+      details: ``
+    },
+  ]
+
+  const experiences: Experience[] = [
+    {
+      title: 'Principal Software Engineer',
+      company: 'ChomCHOB',
+      since: 'April 2023',
+      to: 'Present',
+      responsibilities: [
+        'Head of developement department',
+        'Whole company\'s products management',
+        'Supervise and improve developer team',
+      ]
+    },
+    {
+      title: 'Innovation Team Leader',
+      company: 'ChomCHOB',
+      since: 'January 2023',
+      to: 'March 2023',
+      responsibilities: [
+        'Design and develop innovation products',
+        'Supervise and improve developer team',
+      ]
+    },
+    {
+      title: 'Executive Blockchain Developer',
+      company: 'ChomCHOB',
+      since: 'July 2022',
+      to: 'December 2022',
+      responsibilities: [
+        'Design and implement blockchain products',
+        'Consult business with blockchain and Web 3.0 knowledge'
+      ]
+    },
+    {
+      title: 'Senior Backend and Blockchain Developer',
+      company: 'ChomCHOB',
+      since: 'June 2021',
+      to: 'July 2022',
+      responsibilities: [
+        'Design and implement blockchain products',
+      ]
+    },
+    {
+      title: 'Senior Backend Developer and Data Scientist',
+      company: 'ChomCHOB',
+      since: 'January 2021',
+      to: 'June 2022',
+      responsibilities: [
+        'Data analytics, research and solution for business',
+      ]
+    },
+    {
+      title: 'Junior Backend Developer',
+      company: 'ChomCHOB',
+      since: 'January 2019',
+      to: 'December 2020',
+      responsibilities: [
+        'Design and implement microservices, database and system for ChomCHOB\'s products'
+      ]
+    },
+    {
+      title: 'Internship Backend Developer',
+      company: 'ChomCHOB',
+      since: 'July 2018',
+      to: 'August 2018',
+      responsibilities: [
+        'Implement web service for ChomCHOB product'
+      ]
+    },
   ]
 
   return (
@@ -98,6 +210,7 @@ export default function ImprovedProfileWebsite() {
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
       `}</style>
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#2E2F3D]/80 backdrop-blur-sm shadow-md">
+      <title>Natthapach Anuwattananon</title>
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Avatar className="h-12 w-12 border-2 border-[#9F8466]">
@@ -105,11 +218,11 @@ export default function ImprovedProfileWebsite() {
               <AvatarFallback>NA</AvatarFallback>
             </Avatar>
             <Link href="/" className="text-xl font-bold text-[#9F8466]">
-              Natthapach Anuwattananon
+              Natthapach
             </Link>
           </div>
           <nav className="hidden md:flex space-x-6">
-            {['Home', 'About', 'Experience', 'Projects', 'Research', 'Skills', 'Education', 'Contact'].map((item) => (
+            {['Home', 'About', 'Experience', 'Projects', 'Research', 'Skills', 'Education'].map((item) => (
               <Link
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -177,15 +290,19 @@ export default function ImprovedProfileWebsite() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <p className="mb-6 text-lg">
-                  As a technology leader and innovator, I am dedicated to driving innovation that positively impacts people and the world. With expertise in blockchain, AI, and software engineering, I strive to create solutions that push the boundaries of whats possible.
+                  I am an innovator with a strong foundation in technical knowledge, including programming, blockchain, and AI.
+                  My expertise also extends to business solutions, product ownership, and team development. 
+                  <br></br>
+                  <br></br>
+                  I am seeking a rolw where I can drive innovation that positively impacts people and the world.
                 </p>
                 <h3 className="text-2xl font-semibold mb-4 text-[#9F8466]">Core Expertise:</h3>
                 <ul className="list-disc list-inside mb-6 space-y-2">
+                  <li>Software Architecture</li>
                   <li>Blockchain Development</li>
                   <li>Artificial Intelligence</li>
-                  <li>Cloud Computing</li>
-                  <li>Software Architecture</li>
                   <li>Team Leadership</li>
+                  <li>Business Developement</li>
                 </ul>
                 <Button asChild className="bg-[#9F8466] hover:bg-[#8F7456] text-white">
                   <Link href="#projects">View My Projects</Link>
@@ -200,7 +317,7 @@ export default function ImprovedProfileWebsite() {
                   className="rounded-lg shadow-xl"
                 />
                 <div className="absolute -bottom-6 -right-6 bg-[#9F8466] text-white p-4 rounded-lg shadow-lg">
-                  <p className="font-semibold">10+ Years</p>
+                  <p className="font-semibold">5+ Years</p>
                   <p>Experience</p>
                 </div>
               </div>
@@ -214,12 +331,7 @@ export default function ImprovedProfileWebsite() {
             <h2 className="text-4xl font-bold mb-12 text-center text-[#9F8466]">Work Experience</h2>
             <div className="relative">
               <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#9F8466]/30"></div>
-              {[
-                { role: "Principal Software Engineer", company: "ChomCHOB", year: "2023 - Present" },
-                { role: "Senior Software Engineer", company: "ChomCHOB", year: "2021 - 2023" },
-                { role: "Software Engineer", company: "ChomCHOB", year: "2019 - 2021" },
-                { role: "Intern", company: "ChomCHOB", year: "2018" }
-              ].map((job, index) => (
+              {experiences.map((exp, index) => (
                 <motion.div
                   key={index}
                   className={`flex items-center mb-8 ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}
@@ -229,13 +341,13 @@ export default function ImprovedProfileWebsite() {
                   variants={fadeInUp}
                   transition={{ delay: index * 0.1 }}
                 >
-                  {index % 2 === 1 && <div className="w-2 h-2 bg-[#9F8466] rounded-full z-10"></div>}
+                  {index % 2 === 1 && <div className="w-4 h-4 bg-[#9F8466] rounded-full z-10"></div>}
                   <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
-                    <h3 className="text-xl font-semibold text-[#9F8466]">{job.role}</h3>
-                    <p className="text-gray-300">{job.company}</p>
-                    <p className="text-sm text-gray-400">{job.year}</p>
+                    <h3 className="text-xl font-semibold text-[#9F8466]">{exp.title}</h3>
+                    <p className="text-gray-300">{exp.company}</p>
+                    <p className="text-sm text-gray-400">{exp.since} - {exp.to}</p>
                   </div>
-                  {index % 2 === 0 && <div className="w-2 h-2 bg-[#9F8466] rounded-full z-10"></div>}
+                  {index % 2 === 0 && <div className="w-4 h-4 bg-[#9F8466] rounded-full z-10"></div>}
                 </motion.div>
               ))}
             </div>
@@ -253,11 +365,18 @@ export default function ImprovedProfileWebsite() {
                     <div key={index} className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] px-4">
                       <Card className="bg-[#2E2F3D] border-[#9F8466]/30 h-full flex flex-col">
                         <CardHeader className="bg-[#9F8466] text-white">
-                          <CardTitle className="truncate" title={project.name}>{project.name}</CardTitle>
+                          <CardTitle className="truncate" title={project.name}>
+                            <div>
+                              {project.name}
+                            </div>
+                            <div className='font-light mt-4'>
+                              {project.company} | {project.year}
+                            </div>
+                          </CardTitle>
                         </CardHeader>
-                        <CardContent className="pt-6 flex-grow overflow-hidden">
+                        <CardContent className="pt-6 flex-grow overflow-hidden bg-[#EFEFEF]">
                           <Image
-                            src={`/placeholder.svg?height=200&width=400&text=${project.name}`}
+                            src={project.image}
                             width={400}
                             height={200}
                             alt={project.name}
@@ -265,7 +384,7 @@ export default function ImprovedProfileWebsite() {
                           />
                           <p className="line-clamp-3">{project.description}</p>
                         </CardContent>
-                        <CardFooter>
+                        <CardFooter className="bg-[#EFEFEF]">
                           <Button 
                             variant="outline" 
                             className="w-full border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466]
@@ -313,13 +432,17 @@ export default function ImprovedProfileWebsite() {
             <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
-                  title: "Generating a 3D Hand Model from Fingertip Positions Using Image Processing Techniques",
-                  description: "This research explores innovative methods to create accurate 3D hand models using advanced image processing techniques, focusing on fingertip position data."
+                  title: "Generative AI in Practice",
+                  company: 'Personal',
+                  year: '2024',
+                  description: "Conducted research and applied Generative AI to enhance productivity in various areas. For example, using tools like Midjourney to create art products such as wall art, Line stickers, and NFT images; and employing ChatGPT to refine articles, write novels, and generate code, among other applications."
                 },
                 {
-                  title: "Generative AI in Practice",
-                  description: "An in-depth study on the practical applications of Generative AI across various industries, highlighting its potential to transform creative and analytical processes."
-                }
+                  title: "Generating a 3D Hand Model from Fingertip Positions Using Image Processing Techniques",
+                  company: 'Ubi-Media',
+                  year: '2019',
+                  description: "The research paper in computer science is about tracking hand gestures in 3-dimensional space using the Kinect camera and image processing technique."
+                },
               ].map((research, index) => (
                 <motion.div
                   key={index}
@@ -331,13 +454,20 @@ export default function ImprovedProfileWebsite() {
                 >
                   <Card className="bg-[#3E3F4D] border-[#9F8466]/30">
                     <CardHeader className="bg-[#9F8466] text-white">
-                      <CardTitle>{research.title}</CardTitle>
+                      <CardTitle>
+                        <div>
+                                {research.title}
+                        </div>
+                        <div className='font-light mt-4'>
+                          {research.company} | {research.year}
+                        </div>
+                      </CardTitle>
                     </CardHeader>
-                    <CardContent className="pt-6">
+                    <CardContent className="pt-6 bg-[#EFEFEF]">
                       <p>{research.description}</p>
                     </CardContent>
-                    <CardFooter>
-                      <Button variant="outline" className="w-full border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white">Read More</Button>
+                    <CardFooter className='bg-[#EFEFEF]'>
+                      {/* <Button variant="outline" className="w-full border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white">Read More</Button> */}
                     </CardFooter>
                   </Card>
                 </motion.div>
@@ -355,11 +485,19 @@ export default function ImprovedProfileWebsite() {
                 <h3 className="text-2xl font-semibold mb-6 text-[#9F8466]">Technical Skills</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { name: "Blockchain", icon: <Code className="h-6 w-6" /> },
-                    { name: "AI", icon: <Lightbulb className="h-6 w-6" /> },
-                    { name: "Node.js", icon: <Code className="h-6 w-6" /> },
+                    { name: "Blockchain fundamentals", icon: <Cuboid className="h-6 w-6" /> },
+                    { name: "Blockchain developements", icon: <Cuboid className="h-6 w-6" /> },
+                    { name: "AI fundamentals", icon: <Brain className="h-6 w-6" /> },
+                    { name: "Generative AI", icon: <Brain className="h-6 w-6" /> },
+                    { name: "Microservice", icon: <Cloud className="h-6 w-6" /> },
                     { name: "Cloud Computing", icon: <Cloud className="h-6 w-6" /> },
-                    { name: "Software Architecture", icon: <LayoutGrid className="h-6 w-6" /> }
+                    { name: "Software Architecture", icon: <CircuitBoard className="h-6 w-6" /> },
+                    { name: "Data Scientist", icon: <Eye className="h-6 w-6" /> },
+                    { name: "Data Analytics", icon: <Eye className="h-6 w-6" /> },
+                    { name: "Node JS", icon: <Code className="h-6 w-6" /> },
+                    { name: "Typescript", icon: <Code className="h-6 w-6" /> },
+                    { name: "Next.js", icon: <Code className="h-6 w-6" /> },
+                    { name: "Python, Numpy, Pandas", icon: <Code className="h-6 w-6" /> },
                   ].map((skill, index) => (
                     <motion.div
                       key={index}
@@ -384,7 +522,8 @@ export default function ImprovedProfileWebsite() {
                     { name: "Product Ownership", icon: <Briefcase className="h-6 w-6" /> },
                     { name: "Team Development", icon: <Users className="h-6 w-6" /> },
                     { name: "Communication", icon: <MessageSquare className="h-6 w-6" /> },
-                    { name: "Problem Solving", icon: <Puzzle className="h-6 w-6" /> }
+                    { name: "Problem Solving", icon: <Puzzle className="h-6 w-6" /> },
+                    { name: "Business Solution", icon: <Puzzle className="h-6 w-6" /> },
                   ].map((skill, index) => (
                     <motion.div
                       key={index}
@@ -409,7 +548,7 @@ export default function ImprovedProfileWebsite() {
         <section id="education" className="py-20 bg-[#2E2F3D]">
           <div className="container mx-auto px-4">
             <h2 className="text-4xl font-bold mb-12 text-center text-[#9F8466]">Education and Certifications</h2>
-            <div className="space-y-8">
+            <div className="grid md:grid-cols-2 gap-4">
               {[
                 {
                   title: "Bachelor's Degree in Computer Science",
@@ -424,6 +563,11 @@ export default function ImprovedProfileWebsite() {
                 {
                   title: "Exchange Student in Engineering Faculty",
                   institution: "Tamkang University, Taiwan",
+                  year: "2018"
+                },
+                {
+                  title: "High School, Math and Scient",
+                  institution: "Sri Ayudhya High School",
                   year: "2018"
                 }
               ].map((edu, index) => (
@@ -457,22 +601,28 @@ export default function ImprovedProfileWebsite() {
             <div className="max-w-md mx-auto space-y-6">
               <div className="flex items-center">
                 <Mail className="mr-4 h-6 w-6 text-[#9F8466]" />
-                <span>natthapach@example.com</span>
+                <span>natthapach.a@gmail.com</span>
               </div>
               <div className="flex items-center">
                 <Phone className="mr-4 h-6 w-6 text-[#9F8466]" />
-                <span>+66 123 456 789</span>
+                <span>+66 85 921 8483</span>
               </div>
               <div className="flex space-x-4 justify-center">
-                <Button variant="outline" size="icon" className="bg-[#2E2F3D] border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white">
-                  <Facebook className="h-5 w-5" />
-                </Button>
-                <Button variant="outline" size="icon" className="bg-[#2E2F3D] border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white">
-                  <Github className="h-5 w-5" />
-                </Button>
-                <Button variant="outline" size="icon" className="bg-[#2E2F3D] border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white">
-                  <Linkedin className="h-5 w-5" />
-                </Button>
+                <a href='https://www.facebook.com/NatthapachAnuwattananon'>
+                  <Button variant="outline" size="icon" className="bg-[#2E2F3D] border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white">
+                    <Facebook className="h-5 w-5" />
+                  </Button>
+                </a>
+                <a href='https://github.com/megapies'>
+                  <Button variant="outline" size="icon" className="bg-[#2E2F3D] border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white">
+                    <Github className="h-5 w-5" />
+                  </Button>
+                </a>
+                <a href='https://linkedin.com/in/natthapach'>
+                  <Button variant="outline" size="icon" className="bg-[#2E2F3D] border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white">
+                    <Linkedin className="h-5 w-5" />
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
@@ -495,10 +645,6 @@ export default function ImprovedProfileWebsite() {
             <div className="w-full md:w-1/3 mb-4 md:mb-0 text-center">
               <p>&copy; 2024 Natthapach Anuwattananon. All Rights Reserved.</p>
             </div>
-            <div className="w-full md:w-1/3 flex justify-end">
-              <Link href="#" className="mr-4 hover:text-[#9F8466]">Terms of Use</Link>
-              <Link href="#" className="hover:text-[#9F8466]">Privacy Policy</Link>
-            </div>
           </div>
         </div>
       </footer>
@@ -507,17 +653,8 @@ export default function ImprovedProfileWebsite() {
         <DialogContent className="bg-[#2E2F3D] text-white border-[#9F8466]">
           <DialogHeader>
             <DialogTitle className="text-[#9F8466]">{selectedProject?.name}</DialogTitle>
-            <DialogClose asChild>
-              <Button
-                variant="ghost"
-                className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
-              >
-                <X className="h-4 w-4" />
-                <span className="sr-only">Close</span>
-              </Button>
-            </DialogClose>
           </DialogHeader>
-          <DialogDescription className="text-gray-300">
+          <DialogDescription className="text-gray-300 whitespace-pre-wrap" >
             {selectedProject?.details}
           </DialogDescription>
         </DialogContent>
