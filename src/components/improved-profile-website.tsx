@@ -73,7 +73,7 @@ export function ImprovedProfileWebsite() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Avatar className="h-12 w-12 border-2 border-[#9F8466]">
-              <AvatarImage src="/placeholderx.svg?height=100&width=100" alt="Natthapach Anuwattananon" />
+              <AvatarImage src="/profile-squarex.jpeg" alt="Natthapach Anuwattananon" />
               <AvatarFallback>NA</AvatarFallback>
             </Avatar>
             <Link href="/" className="text-xl font-bold text-[#9F8466]">
@@ -126,6 +126,18 @@ export function ImprovedProfileWebsite() {
       <main className="pt-20">
         <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#2E2F3D] to-[#4E4F5D]">
           <div className="container mx-auto px-4 text-center">
+            <motion.div
+              className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 flex items-center justify-center"
+              initial="hidden"
+              animate="visible"
+              variants={fadeInUp}
+            >
+              <img
+                src="/profile-square.jpeg"
+                alt="Natthapach Anuwattananon"
+                className="rounded-full shadow-xl w-1/2 md:w-1/4"
+              />
+            </motion.div>
             <motion.h1
               className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6"
               initial="hidden"
