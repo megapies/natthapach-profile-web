@@ -1,4 +1,4 @@
-import ImprovedProfileWebsite from "@/components/improved-profile-website"
+import {ImprovedProfileWebsite} from "@/components/improved-profile-website"
 import Head from "next/head"
 export default function Profile() {
   return (
