@@ -230,12 +230,12 @@ export function ImprovedProfileWebsite() {
                   <div className="w-10 h-10 rounded-full bg-[#9F8466] flex items-center justify-center text-white mr-6">
                     {
                       ['',
-                        <BookOpenText className="h-6 w-6"/>,
-                        <Code className="h-6 w-6"/>,
-                        <Brain className="h-6 w-6"/>,
-                        <CodeSandboxLogoIcon className="h-6 w-6"/>,
-                        <Users className="h-6 w-6"/>,
-                        <Component className="h-6 w-6"/>,
+                        <BookOpenText key="1" className="h-6 w-6"/>,
+                        <Code key="2" className="h-6 w-6"/>,
+                        <Brain key="3" className="h-6 w-6"/>,
+                        <CodeSandboxLogoIcon key="4" className="h-6 w-6"/>,
+                        <Users key="5" className="h-6 w-6"/>,
+                        <Component key="6" className="h-6 w-6"/>,
                       ][job.level]
                     }
                   </div>
