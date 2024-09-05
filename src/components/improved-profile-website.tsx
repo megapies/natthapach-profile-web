@@ -204,28 +204,22 @@ export function ImprovedProfileWebsite() {
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center text-[#9F8466]">Work Experience</h2>
             <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-[#9F8466]/30"></div>
-              {[
-                { role: "Principal Software Engineer", company: "ChomCHOB", year: "2023 - Present" },
-                { role: "Senior Software Engineer", company: "ChomCHOB", year: "2021 - 2023" },
-                { role: "Software Engineer", company: "ChomCHOB", year: "2019 - 2021" },
-                { role: "Intern", company: "ChomCHOB", year: "2018" }
-              ].map((job, index) => (
+              {experiences.map((job, index) => (
                 <motion.div
                   key={index}
-                  className={`flex items-center mb-8 ${index % 2 === 0 ? 'md:justify-start' : 'md:justify-end'}`}
+                  className={`flex items-center mb-8 md:justify-center`}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeInUp}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:text-right md:pr-8' : 'md:text-left md:pl-8'}`}>
-                    <h3 className="text-lg md:text-xl font-semibold text-[#9F8466]">{job.role}</h3>
+                  {/* <div className="hidden md:block w-2 h-2 bg-[#9F8466] rounded-full z-10"></div> */}
+                  <div className={`w-full md:w-5/12 md:text-left md:pl-8`}>
+                    <h3 className="text-lg md:text-xl font-semibold text-[#9F8466]">{job.title}</h3>
                     <p className="text-gray-300">{job.company}</p>
-                    <p className="text-sm text-gray-400">{job.year}</p>
+                    <p className="text-sm text-gray-400">{job.since} - {job.to}</p>
                   </div>
-                  <div className="hidden md:block w-2 h-2 bg-[#9F8466] rounded-full z-10"></div>
                 </motion.div>
               ))}
             </div>
@@ -270,7 +264,7 @@ export function ImprovedProfileWebsite() {
                 variant="outline"
                 size="icon"
                 className={`absolute top-1/2 left-4 transform -translate-y-1/2 bg-[#2E2F3D]/50 border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white ${
-                  !canScrollPrev ? 'opacity-50 cursor-not-allowed' : ''
+                  !canScrollPrev ? 'opacity-50 cursor-not-allowed hidden' : ''
                 }`}
                 onClick={scrollPrev}
                 disabled={!canScrollPrev}
@@ -281,7 +275,7 @@ export function ImprovedProfileWebsite() {
                 variant="outline"
                 size="icon"
                 className={`absolute top-1/2 right-4 transform -translate-y-1/2 bg-[#2E2F3D]/50 border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white ${
-                  !canScrollNext ? 'opacity-50 cursor-not-allowed' : ''
+                  !canScrollNext ? 'opacity-50 cursor-not-allowed hidden' : ''
                 }`}
                 onClick={scrollNext}
                 disabled={!canScrollNext}
