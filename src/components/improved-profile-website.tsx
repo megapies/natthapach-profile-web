@@ -245,12 +245,12 @@ job handling, pub/sub systems, and more.`
         <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#2E2F3D] to-[#4E4F5D]">
           <div className="container mx-auto px-4 text-center">
             <motion.h1
-              className="text-5xl md:text-7xl font-bold mb-6"
+              className="text-4xl md:text-7xl font-bold mb-6"
               initial="hidden"
               animate="visible"
               variants={fadeInUp}
             >
-              Natthapach Anuwattananon
+              Natthapach<br></br>Anuwattananon
             </motion.h1>
             <motion.p
               className="text-2xl md:text-3xl mb-8 text-[#9F8466]"
