@@ -114,7 +114,7 @@ In this project, I design project concepts, project management, and implement sm
       details: `Developed a custom backend framework to enhance team collaboration by establishing a unified and
 consistent development environment. This framework was built upon the team's existing structure,
 considering CI/CD constraints, and included transitioning the team’s primary programming language from
-JavaScript to TypeScript.\n\n\n\n\n\n
+JavaScript to TypeScript.
 
 The framework extended beyond project architecture to incorporate shared tools, such as CLI tools for
 project scaffolding, API creation, and function development, along with helper libraries to simplify common
