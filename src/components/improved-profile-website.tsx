@@ -10,12 +10,9 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogClose } from "@/components/ui/dialog"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import projects, { Project } from '@/components/data/projects'
+import experiences, { Experience } from '@/components/data/experiences'
 
-type Project = {
-  name: string,
-  description: string,
-  details: string,
-}
 export function ImprovedProfileWebsite() {
   const [activeSection, setActiveSection] = useState('home')
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
@@ -63,34 +60,6 @@ export function ImprovedProfileWebsite() {
     visible: { opacity: 1, y: 0 }
   }
 
-  const projects:Project[] = [
-    {
-      name: "ChomCHOB Tunnel",
-      description: "Developed ChomCHOB's first smart contract product, revolutionizing blockchain interactions.",
-      details: "ChomCHOB Tunnel is an innovative smart contract product that streamlines blockchain interactions. It provides a secure and efficient way for users to interact with various blockchain networks, simplifying complex processes and reducing transaction costs. The project involved developing a user-friendly interface, implementing robust security measures, and optimizing gas fees for Ethereum-based transactions."
-    },
-    {
-      name: "ChomCHOB Backend Framework",
-      description: "Architected a robust backend framework, enhancing development efficiency and scalability.",
-      details: "The ChomCHOB Backend Framework is a comprehensive solution designed to accelerate backend development and improve scalability. It incorporates best practices in software architecture, including modular design, dependency injection, and automated testing. The framework supports multiple databases, caching mechanisms, and message queues, allowing developers to build high-performance, scalable applications with ease."
-    },
-    {
-      name: "ChomCHOB Platforms",
-      description: "Led the development of multiple platforms, integrating cutting-edge technologies for optimal performance.",
-      details: "ChomCHOB Platforms is a suite of interconnected applications designed to provide a seamless experience for users across various domains. The project involved developing a microservices architecture, implementing real-time data synchronization, and creating a unified authentication system. The platforms leverage technologies such as GraphQL for efficient data fetching, WebSockets for real-time updates, and containerization for easy deployment and scaling."
-    },
-    {
-      name: "AI-Powered Analytics Dashboard",
-      description: "Designed and implemented an AI-driven analytics dashboard for real-time business insights.",
-      details: "The AI-Powered Analytics Dashboard is a cutting-edge solution that leverages machine learning algorithms to provide real-time, actionable insights for businesses. It integrates data from multiple sources, uses predictive modeling to forecast trends, and presents information through an intuitive, interactive interface. This project significantly improved decision-making processes and operational efficiency for our clients."
-    },
-    {
-      name: "Blockchain-based Supply Chain Solution",
-      description: "Developed a blockchain solution to enhance transparency and traceability in supply chain management.",
-      details: "This innovative project utilizes blockchain technology to create an immutable, transparent record of supply chain transactions. It enables real-time tracking of products from manufacture to delivery, reduces fraud, and improves efficiency. The solution includes smart contracts for automated payments and a user-friendly interface for easy adoption by various stakeholders in the supply chain."
-    }
-  ]
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#2E2F3D] to-[#3E3F4D] text-white font-['Poppins',sans-serif] overflow-x-hidden">
       <style jsx global>{`
@@ -103,11 +72,11 @@ export function ImprovedProfileWebsite() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Avatar className="h-12 w-12 border-2 border-[#9F8466]">
-              <AvatarImage src="/placeholder.svg?height=100&width=100" alt="Natthapach Anuwattananon" />
+              <AvatarImage src="/placeholderx.svg?height=100&width=100" alt="Natthapach Anuwattananon" />
               <AvatarFallback>NA</AvatarFallback>
             </Avatar>
             <Link href="/" className="text-xl font-bold text-[#9F8466]">
-              Natthapach Anuwattananon
+              Natthapach
             </Link>
           </div>
           <nav className="hidden md:flex space-x-6">
@@ -201,15 +170,16 @@ export function ImprovedProfileWebsite() {
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
                 <p className="mb-6 text-base md:text-lg">
-                  As a technology leader and innovator, I am dedicated to driving innovation that positively impacts people and the world. With expertise in blockchain, AI, and software engineering, I strive to create solutions that push the boundaries of whats possible.
+                I am an innovator with a strong foundation in technical knowledge, including programming, blockchain, and AI.
+                My expertise also extends to business solutions, product ownership, and team development. 
                 </p>
                 <h3 className="text-xl md:text-2xl font-semibold mb-4 text-[#9F8466]">Core Expertise:</h3>
                 <ul className="list-disc list-inside mb-6 space-y-2">
+                  <li>Software Architecture</li>
                   <li>Blockchain Development</li>
                   <li>Artificial Intelligence</li>
-                  <li>Cloud Computing</li>
-                  <li>Software Architecture</li>
                   <li>Team Leadership</li>
+                  <li>Business Developement</li>
                 </ul>
                 <Button asChild className="bg-[#9F8466] hover:bg-[#8F7456] text-white">
                   <Link href="#projects">View My Projects</Link>
@@ -222,7 +192,7 @@ export function ImprovedProfileWebsite() {
                   className="rounded-lg shadow-xl w-full"
                 />
                 <div className="absolute -bottom-6 -right-6 bg-[#9F8466] text-white p-4 rounded-lg shadow-lg">
-                  <p className="font-semibold">10+ Years</p>
+                  <p className="font-semibold">5+ Years</p>
                   <p>Experience</p>
                 </div>
               </div>
@@ -269,14 +239,14 @@ export function ImprovedProfileWebsite() {
               <div className="overflow-hidden" ref={emblaRef}>
                 <div className="flex">
                   {projects.map((project, index) => (
-                    <div key={index} className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] px-4">
+                    <div key={index} className="flex-[0_0_100%] min-w-52 sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] px-4">
                       <Card className="bg-[#2E2F3D] border-[#9F8466]/30 h-full flex flex-col">
                         <CardHeader className="bg-[#9F8466] text-white">
                           <CardTitle className="truncate" title={project.name}>{project.name}</CardTitle>
                         </CardHeader>
                         <CardContent className="pt-6 flex-grow overflow-hidden">
                           <img
-                            src={`/placeholder.svg?height=200&width=400&text=${project.name}`}
+                            src={project.image}
                             alt={project.name}
                             className="w-full h-48 object-cover mb-4 rounded-md"
                           />
@@ -519,7 +489,7 @@ export function ImprovedProfileWebsite() {
         <DialogContent className="bg-[#2E2F3D] text-white border-[#9F8466]">
           <DialogHeader>
             <DialogTitle className="text-[#9F8466]">{selectedProject?.name}</DialogTitle>
-            <DialogClose asChild>
+            {/* <DialogClose asChild>
               <Button
                 variant="ghost"
                 className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground"
@@ -527,9 +497,9 @@ export function ImprovedProfileWebsite() {
                 <X className="h-4 w-4" />
                 <span className="sr-only">Close</span>
               </Button>
-            </DialogClose>
+            </DialogClose> */}
           </DialogHeader>
-          <DialogDescription className="text-gray-300">
+          <DialogDescription className="text-gray-300 whitespace-pre-wrap">
             {selectedProject?.details}
           </DialogDescription>
         </DialogContent>
