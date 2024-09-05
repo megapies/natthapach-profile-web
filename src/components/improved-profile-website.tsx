@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import { Facebook, Github, Linkedin, Mail, Phone, Briefcase, GraduationCap, Code, Users, Lightbulb, MessageSquare, Puzzle, Cloud, LayoutGrid, X, ChevronLeft, ChevronRight, Menu } from 'lucide-react'
+import { Facebook, Github, Linkedin, Mail, Phone, Briefcase, GraduationCap, Code, Users, Lightbulb, MessageSquare, Puzzle, Cloud, LayoutGrid, X, ChevronLeft, ChevronRight, Menu, Cuboid, Brain, CircuitBoard, Eye, BookOpenText, Ghost, Component } from 'lucide-react'
 import Link from 'next/link'
 import useEmblaCarousel from 'embla-carousel-react'
 import { Button } from "@/components/ui/button"
@@ -12,6 +12,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import projects, { Project } from '@/components/data/projects'
 import experiences, { Experience } from '@/components/data/experiences'
+import { CodeSandboxLogoIcon } from '@radix-ui/react-icons'
 
 export function ImprovedProfileWebsite() {
   const [activeSection, setActiveSection] = useState('home')
@@ -187,9 +188,9 @@ export function ImprovedProfileWebsite() {
               </div>
               <div className="relative">
                 <img
-                  src="/placeholder.svg?height=400&width=400&text=Profile+Image"
+                  src="/profile-square.jpeg"
                   alt="Natthapach Anuwattananon"
-                  className="rounded-lg shadow-xl w-full"
+                  className="rounded-3xl shadow-xl w-full"
                 />
                 <div className="absolute -bottom-6 -right-6 bg-[#9F8466] text-white p-4 rounded-lg shadow-lg">
                   <p className="font-semibold">5+ Years</p>
@@ -207,15 +208,27 @@ export function ImprovedProfileWebsite() {
               {experiences.map((job, index) => (
                 <motion.div
                   key={index}
-                  className={`flex items-center mb-8 md:justify-center`}
+                  className={`flex items-top mb-8 md:justify-center`}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true }}
                   variants={fadeInUp}
                   transition={{ delay: index * 0.1 }}
                 >
+                  <div className="w-10 h-10 rounded-full bg-[#9F8466] flex items-center justify-center text-white mr-6">
+                    {
+                      ['',
+                        <BookOpenText className="h-6 w-6"/>,
+                        <Code className="h-6 w-6"/>,
+                        <Brain className="h-6 w-6"/>,
+                        <CodeSandboxLogoIcon className="h-6 w-6"/>,
+                        <Users className="h-6 w-6"/>,
+                        <Component className="h-6 w-6"/>,
+                      ][job.level]
+                    }
+                  </div>
                   {/* <div className="hidden md:block w-2 h-2 bg-[#9F8466] rounded-full z-10"></div> */}
-                  <div className={`w-full md:w-5/12 md:text-left md:pl-8`}>
+                  <div className={`w-full md:w-5/12 md:text-left md:pl-1`}>
                     <h3 className="text-lg md:text-xl font-semibold text-[#9F8466]">{job.title}</h3>
                     <p className="text-gray-300">{job.company}</p>
                     <p className="text-sm text-gray-400">{job.since} - {job.to}</p>
@@ -316,7 +329,7 @@ export function ImprovedProfileWebsite() {
                       <p>{research.description}</p>
                     </CardContent>
                     <CardFooter>
-                      <Button variant="outline" className="w-full border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white">Read More</Button>
+                      {/* <Button variant="outline" className="w-full border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white">Read More</Button> */}
                     </CardFooter>
                   </Card>
                 </motion.div>
@@ -333,11 +346,19 @@ export function ImprovedProfileWebsite() {
                 <h3 className="text-xl md:text-2xl font-semibold mb-6 text-[#9F8466]">Technical Skills</h3>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    { name: "Blockchain", icon: <Code className="h-6 w-6" /> },
-                    { name: "AI", icon: <Lightbulb className="h-6 w-6" /> },
-                    { name: "Node.js", icon: <Code className="h-6 w-6" /> },
+                    { name: "Blockchain fundamentals", icon: <Cuboid className="h-6 w-6" /> },
+                    { name: "Blockchain developements", icon: <Cuboid className="h-6 w-6" /> },
+                    { name: "AI fundamentals", icon: <Brain className="h-6 w-6" /> },
+                    { name: "Generative AI", icon: <Brain className="h-6 w-6" /> },
+                    { name: "Microservice", icon: <Cloud className="h-6 w-6" /> },
                     { name: "Cloud Computing", icon: <Cloud className="h-6 w-6" /> },
-                    { name: "Software Architecture", icon: <LayoutGrid className="h-6 w-6" /> }
+                    { name: "Software Architecture", icon: <CircuitBoard className="h-6 w-6" /> },
+                    { name: "Data Scientist", icon: <Eye className="h-6 w-6" /> },
+                    { name: "Data Analytics", icon: <Eye className="h-6 w-6" /> },
+                    { name: "Node JS", icon: <Code className="h-6 w-6" /> },
+                    { name: "Typescript", icon: <Code className="h-6 w-6" /> },
+                    { name: "Next.js", icon: <Code className="h-6 w-6" /> },
+                    { name: "Python, Numpy, Pandas", icon: <Code className="h-6 w-6" /> },
                   ].map((skill, index) => (
                     <motion.div
                       key={index}
@@ -362,7 +383,8 @@ export function ImprovedProfileWebsite() {
                     { name: "Product Ownership", icon: <Briefcase className="h-6 w-6" /> },
                     { name: "Team Development", icon: <Users className="h-6 w-6" /> },
                     { name: "Communication", icon: <MessageSquare className="h-6 w-6" /> },
-                    { name: "Problem Solving", icon: <Puzzle className="h-6 w-6" /> }
+                    { name: "Problem Solving", icon: <Puzzle className="h-6 w-6" /> },
+                    { name: "Business Solution", icon: <Puzzle className="h-6 w-6" /> },
                   ].map((skill, index) => (
                     <motion.div
                       key={index}
@@ -413,7 +435,7 @@ export function ImprovedProfileWebsite() {
                   variants={fadeInUp}
                   transition={{ delay: index * 0.1 }}
                 >
-                  <div className="w-16 h-16 rounded-full bg-[#9F8466] flex items-center justify-center text-white mr-6">
+                  <div className="w-16 h-16 rounded-full bg-[#9F8466] flex items-center justify-center text-white mr-6 flex-shrink-0">
                     <GraduationCap className="h-8 w-8" />
                   </div>
                   <div>
@@ -433,22 +455,28 @@ export function ImprovedProfileWebsite() {
             <div className="max-w-md mx-auto space-y-6">
               <div className="flex items-center">
                 <Mail className="mr-4 h-6 w-6 text-[#9F8466]" />
-                <span>natthapach@example.com</span>
+                <span>natthapach.a@gmail.com</span>
               </div>
               <div className="flex items-center">
                 <Phone className="mr-4 h-6 w-6 text-[#9F8466]" />
-                <span>+66 123 456 789</span>
+                <span>+66 85 921 8483</span>
               </div>
               <div className="flex space-x-4 justify-center">
-                <Button variant="outline" size="icon" className="bg-[#2E2F3D] border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white">
-                  <Facebook className="h-5 w-5" />
-                </Button>
-                <Button variant="outline" size="icon" className="bg-[#2E2F3D] border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white">
-                  <Github className="h-5 w-5" />
-                </Button>
-                <Button variant="outline" size="icon" className="bg-[#2E2F3D] border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white">
-                  <Linkedin className="h-5 w-5" />
-                </Button>
+                <a href='https://www.facebook.com/NatthapachAnuwattananon'>
+                  <Button variant="outline" size="icon" className="bg-[#2E2F3D] border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white">
+                    <Facebook className="h-5 w-5" />
+                  </Button>
+                </a>
+                <a href='https://github.com/megapies'>
+                  <Button variant="outline" size="icon" className="bg-[#2E2F3D] border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white">
+                    <Github className="h-5 w-5" />
+                  </Button>
+                </a>
+                <a href='https://linkedin.com/in/natthapach'>
+                  <Button variant="outline" size="icon" className="bg-[#2E2F3D] border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white">
+                    <Linkedin className="h-5 w-5" />
+                  </Button>
+                </a>
               </div>
             </div>
           </div>
@@ -470,10 +498,6 @@ export function ImprovedProfileWebsite() {
             </div>
             <div className="w-full md:w-1/3 mb-4 md:mb-0 text-center">
               <p>&copy; 2024 Natthapach Anuwattananon. All Rights Reserved.</p>
-            </div>
-            <div className="w-full md:w-1/3 flex justify-end">
-              <Link href="#" className="mr-4 hover:text-[#9F8466]">Terms of Use</Link>
-              <Link href="#" className="hover:text-[#9F8466]">Privacy Policy</Link>
             </div>
           </div>
         </div>

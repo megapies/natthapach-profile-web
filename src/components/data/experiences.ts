@@ -3,6 +3,7 @@ export type Experience = {
   since: string,
   to: string,
   company: string,
+  level: number,
   responsibilities: string[],
 }
 
@@ -10,6 +11,7 @@ const experiences: Experience[] = [
   {
     title: 'Principal Software Engineer',
     company: 'ChomCHOB',
+    level: 6,
     since: 'April 2023',
     to: 'Present',
     responsibilities: [
@@ -21,6 +23,7 @@ const experiences: Experience[] = [
   {
     title: 'Innovation Team Leader',
     company: 'ChomCHOB',
+    level: 5,
     since: 'January 2023',
     to: 'March 2023',
     responsibilities: [
@@ -31,6 +34,7 @@ const experiences: Experience[] = [
   {
     title: 'Executive Blockchain Developer',
     company: 'ChomCHOB',
+    level: 4,
     since: 'July 2022',
     to: 'December 2022',
     responsibilities: [
@@ -41,6 +45,7 @@ const experiences: Experience[] = [
   {
     title: 'Senior Backend and Blockchain Developer',
     company: 'ChomCHOB',
+    level: 3,
     since: 'June 2021',
     to: 'July 2022',
     responsibilities: [
@@ -50,6 +55,7 @@ const experiences: Experience[] = [
   {
     title: 'Senior Backend Developer and Data Scientist',
     company: 'ChomCHOB',
+    level: 3,
     since: 'January 2021',
     to: 'June 2022',
     responsibilities: [
@@ -59,6 +65,7 @@ const experiences: Experience[] = [
   {
     title: 'Junior Backend Developer',
     company: 'ChomCHOB',
+    level: 2,
     since: 'January 2019',
     to: 'December 2020',
     responsibilities: [
@@ -68,6 +75,7 @@ const experiences: Experience[] = [
   {
     title: 'Internship Backend Developer',
     company: 'ChomCHOB',
+    level: 1,
     since: 'July 2018',
     to: 'August 2018',
     responsibilities: [

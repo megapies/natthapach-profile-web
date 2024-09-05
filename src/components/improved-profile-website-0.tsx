@@ -18,7 +18,7 @@ type Project = {
   details: string;
   company: string,
   image: string,
-};
+}
 type Experience = {
   title: string,
   since: string,
