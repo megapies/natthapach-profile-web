@@ -132,11 +132,18 @@ export function ImprovedProfileWebsite() {
               animate="visible"
               variants={fadeInUp}
             >
-              <img
+                <div className="relative w-1/2 md:w-1/4 aspect-square rounded-full bg-gradient-to-b from-[#2E2F3D] to-[#9F8466] flex items-center justify-center">
+                  <img
+                    src="/profile-square.jpeg"
+                    alt="Profile"
+                    className="w-[95%] h-[95%] object-cover rounded-full"
+                  />
+                </div>
+              {/* <img
                 src="/profile-square.jpeg"
                 alt="Natthapach Anuwattananon"
                 className="rounded-full shadow-xl w-1/2 md:w-1/4"
-              />
+              /> */}
             </motion.div>
             <motion.h1
               className="text-4xl md:text-5xl lg:text-7xl font-bold mb-6"
