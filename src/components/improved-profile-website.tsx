@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import { Facebook, Github, Linkedin, Mail, Phone, Briefcase, GraduationCap, Code, Users, Lightbulb, MessageSquare, Puzzle, Cloud, LayoutGrid, X, ChevronLeft, ChevronRight, Menu, Cuboid, Brain, CircuitBoard, Eye, BookOpenText, Ghost, Component } from 'lucide-react'
+import { Facebook, Github, Linkedin, Mail, Phone, Briefcase, GraduationCap, Code, Users, Lightbulb, MessageSquare, Puzzle, Cloud, LayoutGrid, X, ChevronLeft, ChevronRight, Menu, Cuboid, Brain, CircuitBoard, Eye, BookOpenText, Ghost, Component, Rss } from 'lucide-react'
 import Link from 'next/link'
 import useEmblaCarousel from 'embla-carousel-react'
 import { Button } from "@/components/ui/button"
@@ -73,11 +73,11 @@ export function ImprovedProfileWebsite() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-4">
             <Avatar className="h-12 w-12 border-2 border-[#9F8466]">
-              <AvatarImage src="/profile-squarex.jpeg" alt="Natthapach Anuwattananon" />
+              <AvatarImage src="/aey_profile_pixar_1.jpeg" alt="Natthapach Anuwattananon" />
               <AvatarFallback>NA</AvatarFallback>
             </Avatar>
             <Link href="/" className="text-xl font-bold text-[#9F8466]">
-              Natthapach
+              Natthapach.com
             </Link>
           </div>
           <nav className="hidden md:flex space-x-6">
@@ -207,7 +207,7 @@ export function ImprovedProfileWebsite() {
               </div>
               <div className="relative">
                 <img
-                  src="/profile-square.jpeg"
+                  src="/projects/HR Tech.jpg"
                   alt="Natthapach Anuwattananon"
                   className="rounded-3xl shadow-xl w-full"
                 />
@@ -494,6 +494,13 @@ export function ImprovedProfileWebsite() {
                 <a href='https://linkedin.com/in/natthapach'>
                   <Button variant="outline" size="icon" className="bg-[#2E2F3D] border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white">
                     <Linkedin className="h-5 w-5" />
+                  </Button>
+                </a>
+                <a href='https://medium.com/@natthapach.a'>
+                  <Button variant="outline" size="icon" className="bg-[#2E2F3D] border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white">
+                  <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" class="fill-current text-[#9F8466]">
+                    <path d="M2.846 6.887c.03-.295-.083-.586-.303-.784l-2.24-2.7v-.403h6.958l5.378 11.795 4.728-11.795h6.633v.403l-1.916 1.837c-.165.126-.247.333-.213.538v13.498c-.034.204.048.411.213.537l1.871 1.837v.403h-9.412v-.403l1.939-1.882c.19-.19.19-.246.19-.537v-10.91l-5.389 13.688h-.728l-6.275-13.688v9.174c-.052.385.076.774.347 1.052l2.521 3.058v.404h-7.148v-.404l2.521-3.058c.27-.279.39-.67.325-1.052v-10.608z"/>
+                  </svg>
                   </Button>
                 </a>
               </div>
