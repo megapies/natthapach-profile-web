@@ -82,7 +82,7 @@ export function ImprovedProfileWebsite() {
             </Link>
           </div>
           <nav className="hidden md:flex space-x-6">
-            {['Home', 'About', 'Experience', 'Projects', 'Research', 'Skills', 'Education', 'Contact'].map((item) => (
+            {['Home', 'About', 'Experience', 'Projects', 'Research', 'Skills', 'Education'].map((item) => (
               <Link
                 key={item}
                 href={`#${item.toLowerCase()}`}
@@ -107,7 +107,7 @@ export function ImprovedProfileWebsite() {
                     <Link
                       key={item}
                       href={`#${item.toLowerCase()}`}
-                      className={`hover:text-[#9F8466] transition-colors ${
+                      className={`text-[#FFFFFF] hover:text-[#9F8466] transition-colors ${
                         activeSection === item.toLowerCase() ? 'text-[#9F8466] font-semibold' : ''
                       }`}
                     >
