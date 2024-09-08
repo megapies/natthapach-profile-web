@@ -9,6 +9,10 @@ const certificates = [
   { name: "Microsoft Certified: Azure Solutions Architect Expert", image: "/placeholder.svg?height=300&width=400&text=Azure+Certification" },
   { name: "Certified Kubernetes Administrator (CKA)", image: "/placeholder.svg?height=300&width=400&text=Kubernetes+Certification" },
   { name: "Certified Information Systems Security Professional (CISSP)", image: "/placeholder.svg?height=300&width=400&text=CISSP+Certification" },
+  { name: "Certified Information Systems Security Professional (CISSP)", image: "/placeholder.svg?height=300&width=400&text=CISSP+Certification" },
+  { name: "Certified Information Systems Security Professional (CISSP)", image: "/placeholder.svg?height=300&width=400&text=CISSP+Certification" },
+  { name: "Certified Information Systems Security Professional (CISSP)", image: "/placeholder.svg?height=300&width=400&text=CISSP+Certification" },
+  { name: "Certified Information Systems Security Professional (CISSP)", image: "/placeholder.svg?height=300&width=400&text=CISSP+Certification" },
 ]
 
 export function CertificateCarousel() {
@@ -23,7 +27,7 @@ export function CertificateCarousel() {
     const startScroll = () => {
       scrollInterval = setInterval(() => {
         if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
-          carousel.scrollLeft = 0
+          stopScroll()
         } else {
           carousel.scrollLeft += 1
         }
@@ -53,7 +57,7 @@ export function CertificateCarousel() {
         className="flex overflow-x-hidden space-x-4 p-4"
         style={{ scrollBehavior: 'smooth' }}
       >
-        {[...certificates, ...certificates].map((cert, index) => (
+        {[...certificates].map((cert, index) => (
           <Card key={index} className="flex-shrink-0 w-64 bg-[#3E3F4D] border-[#9F8466]/30 rounded-xl overflow-hidden">
             <CardContent className="p-0">
               <div className="aspect-w-4 aspect-h-3">
