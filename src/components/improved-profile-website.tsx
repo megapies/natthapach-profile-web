@@ -13,6 +13,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import projects, { Project } from '@/components/data/projects'
 import experiences, { Experience } from '@/components/data/experiences'
 import { CodeSandboxLogoIcon } from '@radix-ui/react-icons'
+import { CertificateCarousel } from './certificate-carousel'
 
 export function ImprovedProfileWebsite() {
   const [activeSection, setActiveSection] = useState('home')
@@ -258,6 +259,8 @@ export function ImprovedProfileWebsite() {
             </div>
           </div>
         </section>
+
+        <CertificateCarousel/>
 
         <section id="projects" className="py-20 bg-[#3E3F4D]">
           <div className="container mx-auto px-4">

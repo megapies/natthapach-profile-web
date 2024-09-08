@@ -1,89 +1,75 @@
-'use client'
+"use client"
 
-import { useState, useCallback, useEffect } from 'react'
-import useEmblaCarousel from 'embla-carousel-react'
-import { Button } from "@/components/ui/button"
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { useEffect, useRef } from 'react'
+import { Card, CardContent, CardFooter } from "@/components/ui/card"
 
-type Certificate = {
-  id: number;
-  title: string;
-  imageUrl: string;
-}
-
-const certificates: Certificate[] = [
-  { id: 1, title: "AWS Certified Solutions Architect", imageUrl: "/placeholder.svg?height=400&width=600&text=AWS+Certificate" },
-  { id: 2, title: "Google Cloud Professional Cloud Architect", imageUrl: "/placeholder.svg?height=400&width=600&text=Google+Cloud+Certificate" },
-  { id: 3, title: "Microsoft Certified: Azure Solutions Architect Expert", imageUrl: "/placeholder.svg?height=400&width=600&text=Azure+Certificate" },
-  { id: 4, title: "Certified Kubernetes Administrator (CKA)", imageUrl: "/placeholder.svg?height=400&width=600&text=Kubernetes+Certificate" },
-  { id: 5, title: "Certified Blockchain Developer", imageUrl: "/placeholder.svg?height=400&width=600&text=Blockchain+Certificate" },
+const certificates = [
+  { name: "AWS Certified Solutions Architect", image: "/placeholder.svg?height=300&width=400&text=AWS+Certification" },
+  { name: "Google Cloud Professional Data Engineer", image: "/placeholder.svg?height=300&width=400&text=Google+Cloud+Certification" },
+  { name: "Microsoft Certified: Azure Solutions Architect Expert", image: "/placeholder.svg?height=300&width=400&text=Azure+Certification" },
+  { name: "Certified Kubernetes Administrator (CKA)", image: "/placeholder.svg?height=300&width=400&text=Kubernetes+Certification" },
+  { name: "Certified Information Systems Security Professional (CISSP)", image: "/placeholder.svg?height=300&width=400&text=CISSP+Certification" },
 ]
 
 export function CertificateCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: 'start' })
-  const [canScrollPrev, setCanScrollPrev] = useState(false)
-  const [canScrollNext, setCanScrollNext] = useState(true)
-
-  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi])
-  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi])
-
-  const onSelect = useCallback(() => {
-    if (!emblaApi) return
-    setCanScrollPrev(emblaApi.canScrollPrev())
-    setCanScrollNext(emblaApi.canScrollNext())
-  }, [emblaApi])
+  const carouselRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if (!emblaApi) return
-    onSelect()
-    emblaApi.on('select', onSelect)
-    emblaApi.on('reInit', onSelect)
-  }, [emblaApi, onSelect])
+    const carousel = carouselRef.current
+    if (!carousel) return
+
+    let scrollInterval: NodeJS.Timeout
+
+    const startScroll = () => {
+      scrollInterval = setInterval(() => {
+        if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth) {
+          carousel.scrollLeft = 0
+        } else {
+          carousel.scrollLeft += 1
+        }
+      }, 20)
+    }
+
+    const stopScroll = () => {
+      clearInterval(scrollInterval)
+    }
+
+    startScroll()
+    carousel.addEventListener('mouseenter', stopScroll)
+    carousel.addEventListener('mouseleave', startScroll)
+
+    return () => {
+      stopScroll()
+      carousel.removeEventListener('mouseenter', stopScroll)
+      carousel.removeEventListener('mouseleave', startScroll)
+    }
+  }, [])
 
   return (
-    <div className="relative">
-      <div className="overflow-hidden" ref={emblaRef}>
-        <div className="flex">
-          {certificates.map((certificate) => (
-            <div key={certificate.id} className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] pl-4 pr-4">
-              <div className="bg-[#2E2F3D] rounded-lg overflow-hidden shadow-lg h-full flex flex-col">
-                <div className="relative pt-[66.67%] overflow-hidden">
-                  <img
-                    src={certificate.imageUrl}
-                    alt={certificate.title}
-                    className="absolute top-0 left-0 w-full h-full object-cover"
-                  />
-                </div>
-                <div className="p-4 flex-grow flex items-center justify-center">
-                  <h3 className="text-lg font-semibold text-[#9F8466] text-center">{certificate.title}</h3>
-                </div>
+    <div className="w-full overflow-hidden bg-[#2E2F3D] py-12">
+      <h2 className="text-4xl font-bold mb-8 text-center text-[#9F8466]">Certifications</h2>
+      <div 
+        ref={carouselRef}
+        className="flex overflow-x-hidden space-x-4 p-4"
+        style={{ scrollBehavior: 'smooth' }}
+      >
+        {[...certificates, ...certificates].map((cert, index) => (
+          <Card key={index} className="flex-shrink-0 w-64 bg-[#3E3F4D] border-[#9F8466]/30 rounded-xl overflow-hidden">
+            <CardContent className="p-0">
+              <div className="aspect-w-4 aspect-h-3">
+                <img
+                  src={cert.image}
+                  alt={cert.name}
+                  className="object-cover w-full h-full"
+                />
               </div>
-            </div>
-          ))}
-        </div>
+            </CardContent>
+            <CardFooter className="p-4">
+              <p className="text-center w-full font-semibold text-[#9F8466]">{cert.name}</p>
+            </CardFooter>
+          </Card>
+        ))}
       </div>
-      <Button
-        variant="outline"
-        size="icon"
-        className={`absolute top-1/2 left-4 transform -translate-y-1/2 bg-[#2E2F3D]/50 border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white ${
-          !canScrollPrev ? 'opacity-50 cursor-not-allowed' : ''
-        }`}
-        onClick={scrollPrev}
-        disabled={!canScrollPrev}
-      >
-        <ChevronLeft className="h-4 w-4" />
-      </Button>
-      <Button
-        variant="outline"
-        size="icon"
-        className={`absolute top-1/2 right-4 transform -translate-y-1/2 bg-[#2E2F3D]/50 border-[#9F8466] text-[#9F8466] hover:bg-[#9F8466] hover:text-white ${
-          !canScrollNext ? 'opacity-50 cursor-not-allowed' : ''
-        }`}
-        onClick={scrollNext}
-        disabled={!canScrollNext}
-      >
-        <ChevronRight className="h-4 w-4" />
-      </Button>
     </div>
   )
 }
