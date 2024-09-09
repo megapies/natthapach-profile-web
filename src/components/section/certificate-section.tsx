@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react'
 import { Card, CardContent, CardFooter, CardTitle, CardHeader } from "@/components/ui/card"
 import certificates, { Certification } from '@/components/data/certificates'
 
-export function CertificateCarousel() {
+export function CertificateSection() {
   const carouselRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

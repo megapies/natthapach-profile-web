@@ -13,9 +13,8 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import projects, { Project } from '@/components/data/projects'
 import experiences, { Experience } from '@/components/data/experiences'
 import { CodeSandboxLogoIcon } from '@radix-ui/react-icons'
-import { CertificateCarousel } from './certificate-carousel'
-import AutoplayCarousel from './autoplay-carousel'
-
+import { CertificateSection } from './section/certificate-section'
+import { NavBar } from './section/nav-bar'
 export function ImprovedProfileWebsite() {
   const [activeSection, setActiveSection] = useState('home')
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
@@ -73,57 +72,7 @@ export function ImprovedProfileWebsite() {
       `}</style>
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#2E2F3D]/80 backdrop-blur-sm shadow-md">
         <title>Natthapach Anuwattananon</title>
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <Avatar className="h-12 w-12 border-2 border-[#9F8466]">
-              <AvatarImage src="/aey_profile_pixar_1.jpeg" alt="Natthapach Anuwattananon" />
-              <AvatarFallback>NA</AvatarFallback>
-            </Avatar>
-            <Link href="/" className="text-xl font-bold text-[#9F8466]">
-              Natthapach.com
-            </Link>
-          </div>
-          <nav className="hidden md:flex space-x-6">
-            {['Home', 'About', 'Experience', 'Projects', 'Research', 'Skills', 'Education'].map((item) => (
-              <Link
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className={`hover:text-[#9F8466] transition-colors ${
-                  activeSection === item.toLowerCase() ? 'text-[#9F8466] font-semibold' : ''
-                }`}
-              >
-                {item}
-              </Link>
-            ))}
-          </nav>
-          <div className="md:hidden">
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-6 w-6" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-[#2E2F3D]">
-                <nav className="flex flex-col space-y-4">
-                  {['Home', 'About', 'Experience', 'Projects', 'Research', 'Skills', 'Education', 'Contact'].map((item) => (
-                    <Link
-                      key={item}
-                      href={`#${item.toLowerCase()}`}
-                      className={`text-[#FFFFFF] hover:text-[#9F8466] transition-colors ${
-                        activeSection === item.toLowerCase() ? 'text-[#9F8466] font-semibold' : ''
-                      }`}
-                    >
-                      {item}
-                    </Link>
-                  ))}
-                </nav>
-              </SheetContent>
-            </Sheet>
-          </div>
-          <Button asChild className="hidden md:inline-flex bg-[#9F8466] hover:bg-[#8F7456] text-white">
-            <Link href="#contact">Contact</Link>
-          </Button>
-        </div>
+        <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
       </header>
 
       <main className="pt-20">
@@ -426,7 +375,7 @@ export function ImprovedProfileWebsite() {
           </div>
         </section>
 
-        <CertificateCarousel/>
+        <CertificateSection/>
 
         <section id="education" className="py-20 bg-[#2E2F3D]">
           <div className="container mx-auto px-4">
