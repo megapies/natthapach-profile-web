@@ -4,10 +4,17 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./card";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <div className="flex-[0_0_100%] min-w-52 sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] px-4">
+    <div className="flex-[0_0_100%] min-w-52 sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] px-4 mb-8">
       <Card className="bg-[#2E2F3D] border-[#9F8466]/30 h-full flex flex-col">
         <CardHeader className="bg-[#9F8466] text-white">
-          <CardTitle className="truncate" title={project.name}>{project.name}</CardTitle>
+          <CardTitle className="truncate" title={project.name}>
+          <div>
+            {project.name}
+          </div>
+          <div className='font-light text-sm'>
+            {project.company} | {project.year}
+          </div>
+          </CardTitle>
         </CardHeader>
         <CardContent className="pt-6 flex-grow overflow-hidden">
           <img

@@ -26,8 +26,8 @@ export default function Profile() {
       </header>
       <main className="pt-20 px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-0 px-4">
-          {projects.map((project, index) => (
-            <ProjectCard project={project} key={index}/>
+          {projects.map((project, index) => ( 
+              <ProjectCard project={project} key={index}/>
           ))}
         </div>
       </main>

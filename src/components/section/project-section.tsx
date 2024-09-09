@@ -76,7 +76,7 @@ export function ProjectSection({ fadeInUp, selectedProject, setSelectedProject }
             <ChevronRight className="h-4 w-4" />
           </Button>
         </div>
-        <div className='flex flex items-center justify-center pt-8'>
+        <div className='flex flex items-center justify-center'>
           <a href="/projects">
             <Button
               variant="outline"
