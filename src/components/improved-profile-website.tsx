@@ -24,6 +24,7 @@ import { SkillSection } from './section/skill-section'
 import { EducationSection } from './section/education-section'
 import { ContactSection } from './section/contact-section'
 import { Footer } from './footer'
+import { AIRemark } from './section/ai-remark'
 export function ImprovedProfileWebsite() {
   const [activeSection, setActiveSection] = useState('home')
   const [selectedProject, setSelectedProject] = useState<Project | null>(null)
@@ -76,6 +77,7 @@ export function ImprovedProfileWebsite() {
         <CertificateSection/>
         <EducationSection fadeInUp={fadeInUp}/>
         <ContactSection fadeInUp={fadeInUp}/>
+        <AIRemark/>
       </main>
 
       <Footer/>
