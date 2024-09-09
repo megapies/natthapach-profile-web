@@ -27,7 +27,7 @@ export function NavBar({ activeSection, setActiveSection }: NavBarProps) {
             {['Home', 'About', 'Experience', 'Projects', 'Research', 'Skills', 'Education'].map((item) => (
               <Link
                 key={item}
-                href={`#${item.toLowerCase()}`}
+                href={`/#${item.toLowerCase()}`}
                 className={`hover:text-[#9F8466] transition-colors ${
                   activeSection === item.toLowerCase() ? 'text-[#9F8466] font-semibold' : ''
                 }`}
