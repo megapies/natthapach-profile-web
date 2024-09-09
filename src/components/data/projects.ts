@@ -5,6 +5,7 @@ export type Project = {
   details: string;
   company: string,
   image: string,
+  url: string,
 }
 
 const projects: Project[] = [
@@ -13,6 +14,7 @@ const projects: Project[] = [
     year: '2024',
     image: 'projects/cc-platform.png',
     company: 'ChomCHOB',
+    url: '/projects/cc-platform',
     description: `Direct and supervise for develop whole company's products`,
     details: `At its core, ChomCHOB focuses on loyalty technology and FinTech products. The ChomCHOB Platforms
 initiative is a strategic expansion that builds upon these core offerings to enhance other technology sectors,
@@ -30,6 +32,7 @@ discussion with executives. I also supervised the development of products in ali
     year: '2022',
     image: '/projects/cc-tunnel-1.png',
     company: 'ChomCHOB',
+    url: '/projects/cc-tunnel',
     description: `Blockchain product for converting between cryptocurrencies and loyalty point in real world`,
     details: `ChomCHOB Tunnel is the first smart contract products of ChomCHOB. This product gives users to convert
 between their cryptocurrencies on blockchain and CCP (ChomCHOB point), two-way conversion. This
@@ -43,6 +46,7 @@ In this project, I design project concepts, project management, and implement sm
     year: '2021',
     image: '/projects/cc-framework.png',
     company: 'ChomCHOB',
+    url: '/projects/cc-backend-framework',
     description: `Building own Typescript framework for microservice`,
     details: `Developed a custom backend framework to enhance team collaboration by establishing a unified and
 consistent development environment. This framework was built upon the team's existing structure,
@@ -62,6 +66,7 @@ job handling, pub/sub systems, and more.`
     year: '2024',
     image: '/projects/HR Tech.jpg',
     company: 'ChomCHOB',
+    url: '/projects/hr-tech-2024',
     description: `Speaker in ChomCHOB's Tech Stage in HR Tech 2024 event`,
     details: ``
   },

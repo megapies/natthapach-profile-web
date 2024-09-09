@@ -1,8 +1,14 @@
 'use client'
 
-import {ImprovedProfileWebsite} from "@/components/improved-profile-website"
+import { Footer } from "@/components/footer"
+import { ImprovedProfileWebsite } from "@/components/improved-profile-website"
 import { NavBar } from "@/components/section/nav-bar"
 import { useState } from "react"
+import projects from '@/components/data/projects'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { ProjectCard } from "@/components/ui/project-card"
+
 export default function Profile() {
   const [activeSection, setActiveSection] = useState('projects')
 
@@ -16,8 +22,16 @@ export default function Profile() {
       `}</style>
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#2E2F3D]/80 backdrop-blur-sm shadow-md">
         <title>Natthapach Anuwattananon</title>
-        <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
+        <NavBar activeSection={activeSection} setActiveSection={setActiveSection} />
       </header>
+      <main className="pt-20 px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-0 px-4">
+          {projects.map((project, index) => (
+            <ProjectCard project={project} key={index}/>
+          ))}
+        </div>
+      </main>
+      <Footer />
     </div>
   )
 }
