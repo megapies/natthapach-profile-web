@@ -1,19 +1,8 @@
 "use client"
 
 import { useEffect, useRef } from 'react'
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
-
-const certificates = [
-  { name: "AWS Certified Solutions Architect", image: "/placeholder.svg?height=300&width=400&text=AWS+Certification" },
-  { name: "Google Cloud Professional Data Engineer", image: "/placeholder.svg?height=300&width=400&text=Google+Cloud+Certification" },
-  { name: "Microsoft Certified: Azure Solutions Architect Expert", image: "/placeholder.svg?height=300&width=400&text=Azure+Certification" },
-  { name: "Certified Kubernetes Administrator (CKA)", image: "/placeholder.svg?height=300&width=400&text=Kubernetes+Certification" },
-  { name: "Certified Information Systems Security Professional (CISSP)", image: "/placeholder.svg?height=300&width=400&text=CISSP+Certification" },
-  { name: "Certified Information Systems Security Professional (CISSP)", image: "/placeholder.svg?height=300&width=400&text=CISSP+Certification" },
-  { name: "Certified Information Systems Security Professional (CISSP)", image: "/placeholder.svg?height=300&width=400&text=CISSP+Certification" },
-  { name: "Certified Information Systems Security Professional (CISSP)", image: "/placeholder.svg?height=300&width=400&text=CISSP+Certification" },
-  { name: "Certified Information Systems Security Professional (CISSP)", image: "/placeholder.svg?height=300&width=400&text=CISSP+Certification" },
-]
+import { Card, CardContent, CardFooter, CardTitle, CardHeader } from "@/components/ui/card"
+import certificates, { Certification } from '@/components/data/certificates'
 
 export function CertificateCarousel() {
   const carouselRef = useRef<HTMLDivElement>(null)
@@ -50,28 +39,38 @@ export function CertificateCarousel() {
   }, [])
 
   return (
-    <div className="w-full overflow-hidden bg-[#2E2F3D] py-12">
+    <div className="w-full overflow-hidden bg-[#EFEFEF] py-12">
       <h2 className="text-4xl font-bold mb-8 text-center text-[#9F8466]">Certifications</h2>
       <div 
         ref={carouselRef}
         className="flex overflow-x-hidden space-x-4 p-4"
         style={{ scrollBehavior: 'smooth' }}
       >
-        {[...certificates].map((cert, index) => (
-          <Card key={index} className="flex-shrink-0 w-64 bg-[#3E3F4D] border-[#9F8466]/30 rounded-xl overflow-hidden">
-            <CardContent className="p-0">
-              <div className="aspect-w-4 aspect-h-3">
-                <img
-                  src={cert.image}
-                  alt={cert.name}
-                  className="object-cover w-full h-full"
-                />
-              </div>
-            </CardContent>
-            <CardFooter className="p-4">
-              <p className="text-center w-full font-semibold text-[#9F8466]">{cert.name}</p>
-            </CardFooter>
-          </Card>
+        {[...certificates, ...certificates].map((cert, index) => (
+          <img
+          key={index}
+          src={cert.image}
+          alt={cert.name}
+          className="h-40 mb-4 rounded-xl shadow-lg"
+        />
+
+        //   <div key={index} className="flex-[0_0_100%] min-w-48 sm:flex-[0_0_50%] md:flex-[0_0_33.33%] lg:flex-[0_0_25%] px-4">
+        //   <Card className="bg-[#2E2F3D] border-[#9F8466]/30 h-full flex flex-col">
+        //     {/* <CardHeader className="bg-[#9F8466] text-white">
+        //     <CardTitle className="truncate"></CardTitle>
+        //   </CardHeader> */}
+        //   <CardContent className="flex-grow overflow-hidden p-0">
+        //     <img
+        //       src={cert.image}
+        //       alt={cert.name}
+        //       className="w-full h-27 object-cover mb-4 rounded-md"
+        //     />
+        //     {/* <p className="line-clamp-2 p-6">{cert.name}</p> */}
+        //   </CardContent>
+        //   <CardFooter>
+        //   </CardFooter>
+        // </Card>
+        // </div>
         ))}
       </div>
     </div>
