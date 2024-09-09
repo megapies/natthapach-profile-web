@@ -25,7 +25,7 @@ export default function Page() {
       <div className="container px-4 my-12 lg:px-64 w-full">
         <h2 className="text-4xl font-bold text-center text-[#9F8466] mt-4">ChomCHOB Platforms</h2>
         <p className="text-center">ChomCHOB | 2024</p>
-        <img src='/projects/cc-platform.png' alt="cover" className="w-full rounded-lg h-52 object-cover my-8 shadow-md"/>
+        <img src='/projects/cc-platform.png' alt="cover" className="w-full rounded-lg md:h-52 object-cover my-8 shadow-md"/>
         <p className="mb-6">
           ChomCHOB started with a simple yet impactful idea: to solve the problem of scattered and underutilized credit card points. The vision was to allow users to combine points from multiple cards to unlock more valuable rewards. This led to the development of the <b className="text-[#9F8466]">ChomCHOB Application</b> and the creation of <b className="text-[#9F8466]">ChomCHOB Point (CCP)</b>, a unified currency that consolidates points from various banks and leading loyalty programs.
         </p>
@@ -45,12 +45,7 @@ export default function Page() {
         <p className="mb-6">
           Though challenges remain, the launch of ChomCHOB Platforms marks a significant step forward, bringing the power of loyalty technology to new industries and applications.
         </p>
-      </div>
-          
-
-
-
-        
+      </div>        
       </main>
       <Footer/>
     </div>

@@ -24,8 +24,8 @@ export default function Profile() {
         <title>Natthapach Anuwattananon</title>
         <NavBar activeSection={activeSection} setActiveSection={setActiveSection} />
       </header>
-      <main className="pt-20 px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-0 px-4">
+      <main className="pt-20 md:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-0 px-4">
           {projects.map((project, index) => ( 
               <ProjectCard project={project} key={index}/>
           ))}
