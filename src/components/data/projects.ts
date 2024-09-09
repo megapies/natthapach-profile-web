@@ -134,12 +134,12 @@ job handling, pub/sub systems, and more.`
     details: '',
   },
   {
-    name: "Google Summit 2023 - Sans Frans",
-    year: '2020',
-    image: '/projects/HR Tech.jpg',
+    name: "Google Next '23",
+    year: '2023',
+    image: '/projects/gg-next-23/cover.jpeg',
     company: 'ChomCHOB',
-    url: '/projects/gg-summit-23',
-    description: '',
+    url: '/projects/google-next-23',
+    description: 'Attended Google Cloud Next \'23 in San Francisco to explore the latest innovations in cloud technology and AI, including the launch of DUET AI for Google Workspace.',
     details: '',
   },
 ]
