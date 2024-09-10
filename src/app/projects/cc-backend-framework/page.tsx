@@ -27,10 +27,10 @@ export default function Page() {
           <p className="text-center">ChomCHOB | 2021</p>
           <img src='/projects/cc-backend-framework/cover.png' alt="cover" className="w-full rounded-lg object-cover my-8 shadow-md" />
           <p className="mb-6">
-            To enhance team collaboration and streamline development processes, we developed a custom backend framework tailored to ChomCHOB's specific needs. This framework was designed to create a unified and consistent development environment that would foster better teamwork, reduce errors, and improve overall productivity.
+            To enhance team collaboration and streamline development processes, we developed a custom backend framework tailored to ChomCHOB&apos;s specific needs. This framework was designed to create a unified and consistent development environment that would foster better teamwork, reduce errors, and improve overall productivity.
           </p>
           <p className="mb-6">
-            The foundation of the framework was built upon the team's existing structure, with careful consideration of CI/CD constraints. One of the key decisions in this process was transitioning the team's primary programming language from JavaScript to TypeScript. This shift was aimed at leveraging TypeScript's strong typing and tooling support to reduce runtime errors and improve code maintainability. It also enabled the team to adopt modern development practices that promote more robust and scalable solutions.
+            The foundation of the framework was built upon the team&apos;s existing structure, with careful consideration of CI/CD constraints. One of the key decisions in this process was transitioning the team&apos;s primary programming language from JavaScript to TypeScript. This shift was aimed at leveraging TypeScript&apos;s strong typing and tooling support to reduce runtime errors and improve code maintainability. It also enabled the team to adopt modern development practices that promote more robust and scalable solutions.
           </p>
           <p className="mb-6">
             The new framework went beyond standard project architecture by incorporating a suite of shared tools and utilities. These included custom CLI tools designed to simplify project scaffolding, API creation, and functional development. Helper libraries were also developed to handle repetitive tasks, such as data validation, error handling, and logging, reducing the amount of boilerplate code the developers needed to write. This not only sped up development but also ensured a higher degree of consistency across different projects.
@@ -39,7 +39,7 @@ export default function Page() {
             Furthermore, the framework was designed with flexibility in mind, supporting a microservices architecture that allows for a wide range of processing capabilities. This includes modules for queue processing, job handling, and pub/sub systems, which enable various components to communicate and operate independently. This architecture was essential in allowing the team to handle different types of workloads efficiently, from high-frequency data processing to complex, long-running tasks.
           </p>
           <p className="mb-6">
-            The result of this effort was a backend framework that not only aligned with the team's development practices but also empowered them to work more efficiently and cohesively. By providing a unified environment and set of tools, the framework facilitated smoother collaboration, quicker onboarding of new developers, and more effective scaling of projects to meet the company's growing needs.
+            The result of this effort was a backend framework that not only aligned with the team&apos;s development practices but also empowered them to work more efficiently and cohesively. By providing a unified environment and set of tools, the framework facilitated smoother collaboration, quicker onboarding of new developers, and more effective scaling of projects to meet the company&apos;s growing needs.
           </p>
           <p className="mb-6">
             This initiative has laid a strong foundation for future development at ChomCHOB, positioning the team to build and maintain high-quality applications in a rapidly evolving tech landscape.

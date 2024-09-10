@@ -30,7 +30,7 @@ export default function Page() {
           ChomCHOB started with a simple yet impactful idea: to solve the problem of scattered and underutilized credit card points. The vision was to allow users to combine points from multiple cards to unlock more valuable rewards. This led to the development of the <b className="text-[#9F8466]">ChomCHOB Application</b> and the creation of <b className="text-[#9F8466]">ChomCHOB Point (CCP)</b>, a unified currency that consolidates points from various banks and leading loyalty programs.
         </p>
         <p className="mb-6">
-          ChomCHOB quickly became a pioneer in loyalty technology by offering unique redemption options, such as e-vouchers and bill payments—features uncommon in the market at that time. This approach not only deepened ChomCHOB's understanding of the market but also built a strong technological foundation, establishing it as a leader in loyalty platforms.
+          ChomCHOB quickly became a pioneer in loyalty technology by offering unique redemption options, such as e-vouchers and bill payments—features uncommon in the market at that time. This approach not only deepened ChomCHOB&apos;s understanding of the market but also built a strong technological foundation, establishing it as a leader in loyalty platforms.
         </p>
         <p className="mb-6">
           Building on this foundation, ChomCHOB saw the opportunity to expand its expertise into other sectors. The <b className="text-[#9F8466]">ChomCHOB Platforms</b> initiative aims to integrate loyalty technology into HRTech, MarTech, and EdTech, recognizing that loyalty is vital across all domains. For example, companies in HRTech should cultivate loyalty with employees, while MarTech focuses on customer retention, and EdTech fosters trust with students and parents.
@@ -40,7 +40,7 @@ export default function Page() {
           However, while ChomCHOB has made significant strides, its product suite is not yet fully scalable or adaptable across all sectors. There are still areas that need further development to reach their full potential.
         </p>
         <p className="mb-6">
-          As Tech Lead, I led research efforts and developed strategies to expand ChomCHOB's reach. I also worked closely with executives to refine these ideas and guided the development process to align with our vision. 
+          As Tech Lead, I led research efforts and developed strategies to expand ChomCHOB&apos;s reach. I also worked closely with executives to refine these ideas and guided the development process to align with our vision. 
         </p>
         <p className="mb-6">
           Though challenges remain, the launch of ChomCHOB Platforms marks a significant step forward, bringing the power of loyalty technology to new industries and applications.

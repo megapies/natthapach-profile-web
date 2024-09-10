@@ -82,10 +82,10 @@ job handling, pub/sub systems, and more.`
   {
     name: "ChomWallet",
     year: '2023',
-    image: '/projects/HR Tech.jpg',
+    image: '/projects/chom-wallet/chom-wallet.png',
     company: 'ChomCHOB',
     url: '/projects/chom-wallet',
-    description: '',
+    description: 'The world first partial custodian wallet',
     details: '',
   },
   {
