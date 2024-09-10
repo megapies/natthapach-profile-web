@@ -118,10 +118,10 @@ job handling, pub/sub systems, and more.`
   {
     name: "Morefans - NFT Ticket",
     year: '2022',
-    image: '/projects/HR Tech.jpg',
+    image: '/projects/morefans/morefans-mockup.png',
     company: 'ChomCHOB',
     url: '/projects/morefans',
-    description: '',
+    description: 'NFT Event Ticket System and Application',
     details: '',
   },
   {
