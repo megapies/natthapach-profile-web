@@ -25,6 +25,7 @@ export default function Profile() {
         <NavBar activeSection={activeSection} setActiveSection={setActiveSection} />
       </header>
       <main className="pt-20 md:px-8">
+        <h2 className="text-3xl md:text-4xl font-bold my-6 text-center text-[#9F8466]">My Projects</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-0 px-4">
           {projects.map((project, index) => ( 
               <ProjectCard project={project} key={index}/>

@@ -25,7 +25,7 @@ export default function Page() {
       <div className="container px-4 my-12 lg:px-64 w-full">
         <h2 className="text-4xl font-bold text-center text-[#9F8466] mt-4">Data Analytics for Business</h2>
         <p className="text-center">ChomCHOB | 2020</p>
-        <img src='/projects/HR Tech.jpg' alt="cover" className="w-full md:h-96 rounded-lg object-cover my-8 shadow-md"/>
+        <img src='/projects/cc-data-analytics/cover.jpg' alt="cover" className="w-full md:h-96 rounded-lg object-cover my-8 shadow-md"/>
         <p className="mb-6">
           Data analytics plays a crucial role in modern businesses by enabling data-driven decision-making and uncovering new insights about users and products. Early in my career, just after graduating and completing Andrew Ng&apos;s AI course, I realized that it was too soon for ChomCHOB to adopt Deep Learning for its products. Instead, I saw a more immediate opportunity to apply Data Science techniques to benefit the business.
         </p>

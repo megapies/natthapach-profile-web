@@ -100,10 +100,10 @@ job handling, pub/sub systems, and more.`
   {
     name: "Harvest Point and Rocket Point",
     year: '2020 - 2023',
-    image: '/projects/HR Tech.jpg',
+    image: '/projects/harvest-point/cover.png',
     company: 'ChomCHOB',
     url: '/projects/harvest-point',
-    description: '',
+    description: 'Drive the Micro Investment with the world first Point Investment in ChomCHOB Application',
     details: '',
   },
   {
@@ -127,10 +127,10 @@ job handling, pub/sub systems, and more.`
   {
     name: "Data Analytics for Business",
     year: '2020',
-    image: '/projects/HR Tech.jpg',
+    image: '/projects/cc-data-analytics/cover.jpg',
     company: 'ChomCHOB',
     url: '/projects/cc-data-analytics',
-    description: '',
+    description: 'Make the Data Driven Organization by Initiate Data Vision and Data Analytics for Business Team',
     details: '',
   },
   {
