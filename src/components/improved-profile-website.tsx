@@ -64,6 +64,11 @@ export function ImprovedProfileWebsite() {
       `}</style>
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#2E2F3D]/80 backdrop-blur-sm shadow-md">
         <title>Natthapach Anuwattananon</title>
+        <meta name="description" content="Technology Leader and Innovator" />
+        <meta property="og:title" content="Natthapach.com" />
+        <meta property="og:description" content="Technology Leader and Innovator" />
+        <meta property="og:image" content="/link-cover.jpeg" />
+
         <NavBar activeSection={activeSection} setActiveSection={setActiveSection}/>
       </header>
 

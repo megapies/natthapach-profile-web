@@ -8,6 +8,10 @@ export default function Profile() {
     <>
       <Head>
         <title>Natthapach Anuwattananon</title>
+        <meta name="description" content="Technology Leader and Innovator." />
+        <meta property="og:title" content="Natthapach.com" />
+        <meta property="og:description" content="Technology Leader and Innovator" />
+        <meta property="og:image" content="/link-cover.jpeg" />
       </Head>
       <ImprovedProfileWebsite/>
     </>
