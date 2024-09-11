@@ -61,7 +61,7 @@ export function NavBar({ activeSection, setActiveSection }: NavBarProps) {
             </Sheet>
           </div>
           <Button asChild className="hidden md:inline-flex bg-[#9F8466] hover:bg-[#8F7456] text-white">
-            <Link href="#contact">Contact</Link>
+            <Link href="/#contact">Contact</Link>
           </Button>
         </div>
   )
