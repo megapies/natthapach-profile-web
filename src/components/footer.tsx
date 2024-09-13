@@ -15,7 +15,7 @@ export function Footer() {
                 ))}
               </nav>
             </div>
-            <div className="w-full md:w-1/3 mb-4 md:mb-0 text-center">
+            <div className="w-full md:w-1/3 mb-4 md:mb-0 text-right">
               <p>&copy; 2024 Natthapach Anuwattananon. All Rights Reserved.</p>
             </div>
           </div>
