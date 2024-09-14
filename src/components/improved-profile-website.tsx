@@ -75,7 +75,6 @@ export function ImprovedProfileWebsite() {
 
       <main className="pt-20">
         <HomeSection fadeInUp={fadeInUp}/>
-        <ProductSection/>
         <AboutSection fadeInUp={fadeInUp}/>
         <ExperienceSection fadeInUp={fadeInUp}/>
         <ProjectSection fadeInUp={fadeInUp} selectedProject={selectedProject} setSelectedProject={setSelectedProject}/>
@@ -83,6 +82,7 @@ export function ImprovedProfileWebsite() {
         <SkillSection fadeInUp={fadeInUp}/>
         <CertificateSection/>
         <EducationSection fadeInUp={fadeInUp}/>
+        <ProductSection/>
         <ContactSection fadeInUp={fadeInUp}/>
         <AIRemark/>
       </main>
